@@ -5,15 +5,16 @@ import './App.css'
 import { Switch,Route } from 'react-router-dom'
 import Home from './components/Home'
 import Pizza from "./components/Pizza"
+import Success from './components/Success'
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
+  
+return (
     
       <Switch>
-        <Route path="/"><Home /> </Route>
+        <Route exact path="/"><Home /> </Route>
         <Route path="/pizza"> <Pizza /> </Route>
+        <Route path="/success"> <Success /> </Route>
       </Switch>
     
   )
