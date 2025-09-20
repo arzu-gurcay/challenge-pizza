@@ -1,10 +1,17 @@
+
 function Success(){
+
     return(
-        <div className="success">
-            <h2>Teknolojik Yemekler</h2>
-            <h2>TEBRİKLER!</h2>
-            <p>SİPARİŞİNİZ ALINDI!</p>
+ 
+    
+    <body>
+        <img src="/images/iteration-1-images/logo.svg" className="img" />
+            <div className="success">
+            TEBRİKLER!<br></br>
+        SİPARİŞİNİZ ALINDI!
+            
         </div>
+        </body>
     )
 }
 export default Success;
