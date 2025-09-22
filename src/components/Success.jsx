@@ -4,14 +4,14 @@ function Success(){
     return(
  
     
-    <body>
+    <div>
         <img src="/images/iteration-1-images/logo.svg" className="img" />
             <div className="success">
             TEBRİKLER!<br></br>
         SİPARİŞİNİZ ALINDI!
             
         </div>
-        </body>
+        </div>
     )
 }
 export default Success;
