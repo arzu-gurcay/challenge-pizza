@@ -337,29 +337,129 @@ margin:20px 0;}
   }
 
   @media (max-width:768px) {
-    .pizza-page{
-      padding: 10px;
+    .main {
+      max-width: 90%;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
     }
-    .form-row{
-      flex-direction: column;
-      gap:10px;
+    .navbar {
+      padding-left: 20px;
     }
-    .extras{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
+    .navbar a {
+      font-size: 12px;
     }
-    .order-footer{
-      flex-direction: column;
+    .header {
+      padding: 20px;
+    }
+    .logo {
+      height: 40px;
+    }
+    .title {
+      font-size: 18px;
+    }
+    .price {
+      font-size: 22px;
+    }
+    .desc {
+      font-size: 13px;
+    }
+    .section label {
+      font-size: 16px;
+    }
+    .section select {
+      font-size: 13px;
+    }
+    .order-footer {
+      display: flex;
       align-items: center;
-      gap: 15px;
+      gap:12px;
+      justify-content: space-between;
     }
-    .order-box{
+    .order-box {
       width: 100%;
-      text-align: center;
+      height: auto;
     }
-    .order-btn{
+    .order-summary h3 {
+      font-size: 18px;
+    }
+    .order-summary p {
+      font-size: 16px;
+    }
+    .order-btn {
+      flex: 1;
+      height: 44px;
+    }
+    .order-footer .quantity {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      gap:6px
+    }
+    .form-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .form-group, .form-row{
+      flex:1;
+    }
+    .form-group h3 {
+      font-size: 18px;
+    }
+    .form-group label {
+      font-size: 13px;
+    }
+    .form-group select {
       width: 100%;
-      border-radius: 6px;
+      height: 35px;
+      font-size: 13px;
     }
-  }
+    .extras .checkbox-group {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 20px;
+    }
+    .extras label {
+      font-size: 13px;
+    }
+    .note textarea {
+      font-size: 14px;
+    }
+    .home{
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 100%;
+      padding-bottom: 150px;
+    }
+    .home-header h2{
+      font-size: 70px;
+      font-weight:lighter
+    }
+    .home-header h3{
+      font-size: 70px;
+      font-weight: lighter;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+    .home-logo{
+      top:50px;
+      left:50%;
+      transform: translateX(-50%);
+      height: 30px;
+    }
+    .success-container{
+      font-size: 80px;
+      padding: 0 20px;
+      font-weight: lighter;
+    }
+    .success-container img{
+      top:80px;
+      width: 200px;
+      height: 30px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+}

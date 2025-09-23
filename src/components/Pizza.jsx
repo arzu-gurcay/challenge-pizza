@@ -91,7 +91,7 @@ const handleChange =(e)=>{
                 </div>
                  <div className="extras">
                     <h3>Ek Malzemeler</h3>
-                    <p>En fazla 10 malzeme seçebilirsiniz. 5₺</p>
+                    <p className="info">En fazla 10 malzeme seçebilirsiniz. 5₺</p>
                     <div className="checkbox-group">
                     {ekMalzemeler.map((malzeme)=>(
                         <label key={malzeme}>
@@ -99,14 +99,14 @@ const handleChange =(e)=>{
                         </label>
                     ))}
                     </div>
-                    {formData.malzemeler.length < 4 && <p style={{color:"red"}}>En az 4 malzeme seçmelisin!</p>}
-                {formData.malzemeler.length > 10 && <p style={{color:"red"}}>En fazla 10 malzeme seçebilirsin!</p>}
+                    {formData.malzemeler.length < 4 && <p style={{color:"red"}} className="error">En az 4 malzeme seçmelisin!</p>}
+                {formData.malzemeler.length > 10 && <p style={{color:"red"}} className="error">En fazla 10 malzeme seçebilirsin!</p>}
                 </div>
                 <div className="section">
                         <label>İsim:</label>
                         <input type="text" name="isim" value={formData.isim} onChange={handleChange} placeholder="İsminizi giriniz" />
                     
-                    {formData.isim.length<3 && <p style={{color:"red"}}>En az 3 karakter olmalı!</p>}
+                    {formData.isim.length<3 && <p style={{color:"red"}} className="error">En az 3 karakter olmalı!</p>}
                </div>
                <div className="note">
                 <h3>Sipariş Notu</h3>
