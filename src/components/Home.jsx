@@ -4,12 +4,13 @@ function Home(){
     const history = useHistory();
     return (
         <div className="home">
-            <header className="header">
-            <h1>Teknolojik Yemekler</h1>
+            <header className="home-header">
+            <img src="/images/iteration-1-images/logo.svg" alt="logo" className="home-logo" />
             <h2>KOD ACIKTIRIR</h2>
             <h3>PİZZA, DOYURUR</h3>
-            </header>
             <button onClick={()=> history.push("/pizza")} className="btn">ACIKTIM</button>
+            </header>
+            
         </div>
     )
 }
