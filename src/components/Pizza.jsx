@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function Pizza(){
     const history=useHistory();
-    const basePrice=85.50;
+    const basePrice=(85.50).toFixed(2);
     const extraPrice=5;
     const [formData,setFormData]=useState({
         isim:"",
@@ -38,7 +38,7 @@ const handleChange =(e)=>{
 
      const ekstraTutar = formData.malzemeler.length * extraPrice;
      const secimler=ekstraTutar * formData.adet;
-     const toplam = (basePrice + ekstraTutar) * formData.adet;
+     const toplam = ((basePrice + ekstraTutar) * formData.adet).toFixed(2);
 
      const formGecerli = formData.isim.length >=3 && formData.boyut !== "" && formData.hamur !== "" && formData.malzemeler.length >=4 && formData.malzemeler.length <=10;
 
@@ -72,16 +72,17 @@ const handleChange =(e)=>{
                     </div>
                     </div>
                 <p className="desc">Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates,peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak,düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. Küçük bir pizzaya bazen pizzetta denir.</p>
-               <div className="form-row">
+               <form onSubmit={handleSubmit}>
+                <div className="form-row">
                 <div className="form-group boyut-group">
                  <h3>Boyut Seç <span className="star">*</span></h3>
-                <label><input type="radio" name="boyut" value="Küçük" onChange={handleChange}/>Küçük</label>
-                <label><input type="radio" name="boyut" value="Orta" onChange={handleChange}/>Orta</label>
-                <label><input type="radio" name="boyut" value="Büyük" onChange={handleChange}/>Büyük</label>
+                <label><input type="radio" name="boyut" value="Küçük" onChange={handleChange} data-cy="radio-size-küçük"/>Küçük</label>
+                <label><input type="radio" name="boyut" value="Orta" onChange={handleChange} data-cy="radio-size-orta"/>Orta</label>
+                <label><input type="radio" name="boyut" value="Büyük" onChange={handleChange} data-cy="radio-size-büyük"/>Büyük</label>
                 </div>
                 <div className="form-group">
                 <h3>Hamur Seç <span className="star">*</span></h3>
-                <select name="hamur" value={formData.hamur} onChange={handleChange}>
+                <select name="hamur" value={formData.hamur} onChange={handleChange} data-cy="select-hamur">
                     <option value="">Hamur Kalınlığı</option>
                     <option value="ince">İnce</option>
                     <option value="normal">Normal</option>
@@ -95,7 +96,7 @@ const handleChange =(e)=>{
                     <div className="checkbox-group">
                     {ekMalzemeler.map((malzeme)=>(
                         <label key={malzeme}>
-                            <input type="checkbox" value={malzeme} checked={formData.malzemeler.includes(malzeme)} onChange={handleCheckbox} />{malzeme}
+                            <input type="checkbox" value={malzeme} checked={formData.malzemeler.includes(malzeme)} onChange={handleCheckbox} data-cy={`checkbox-${malzeme}`}/>{malzeme}
                         </label>
                     ))}
                     </div>
@@ -104,15 +105,15 @@ const handleChange =(e)=>{
                 </div>
                 <div className="section">
                         <label>İsim:</label>
-                        <input type="text" name="isim" value={formData.isim} onChange={handleChange} placeholder="İsminizi giriniz" />
+                        <input type="text" name="isim" value={formData.isim} onChange={handleChange} placeholder="İsminizi giriniz" data-cy="input-name"/>
                     
                     {formData.isim.length<3 && <p style={{color:"red"}} className="error">En az 3 karakter olmalı!</p>}
                </div>
                <div className="note">
                 <h3>Sipariş Notu</h3>
-                <textarea placeholder="Siparişine eklemek istediğin bir not var mı ?" name="not" value={formData.not} onChange={handleChange} />
+                <textarea placeholder="Siparişine eklemek istediğin bir not var mı ?" name="not" value={formData.not} onChange={handleChange} data-cy="textarea-note"/>
                     </div>
-                    <form onSubmit={handleSubmit}>
+                    
                     <div className="order-footer">
                         <div className="quantity">
             
@@ -127,7 +128,7 @@ const handleChange =(e)=>{
                         <p className="total">Toplam:<span>{toplam}₺</span></p>
                         
                     </div>
-                    <button className="order-btn" type="submit" disabled={!formGecerli}>SİPARİŞ VER</button>
+                    <button className="order-btn" type="submit" disabled={!formGecerli} data-cy="btn-submit">SİPARİŞ VER</button>
                     </div>
                      </div>
                 </form>
