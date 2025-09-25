@@ -3,9 +3,9 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
-function Pizza(){
+function Pizza({addOrder}){
     const history=useHistory();
-    const basePrice=(85.50).toFixed(2);
+    const basePrice=(85.50);
     const extraPrice=5;
     const [formData,setFormData]=useState({
         isim:"",
@@ -38,17 +38,28 @@ const handleChange =(e)=>{
 
      const ekstraTutar = formData.malzemeler.length * extraPrice;
      const secimler=ekstraTutar * formData.adet;
-     const toplam = ((basePrice + ekstraTutar) * formData.adet).toFixed(2);
+     const toplam = ((basePrice + ekstraTutar) * formData.adet);
 
      const formGecerli = formData.isim.length >=3 && formData.boyut !== "" && formData.hamur !== "" && formData.malzemeler.length >=4 && formData.malzemeler.length <=10;
 
      const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("çalıştı")
         if(!formGecerli) return ;
 
-        axios.post("https://reqres.in/api/pizza?api_key=reqres-free-v1",formData).then((res)=>{
-            console.log("Sipariş özeti:",res.data);
+        const newOrder = {
+            pizzaName: "Position Absolute Acı Pizza",
+            size: formData.boyut,
+            dough: formData.hamur,
+            extras: formData.malzemeler,
+            extrasPrice:secimler,
+            totalPrice:toplam,
+            note: formData.not,
+            adet: formData.adet,
+            name: formData.isim,};
+
+        axios.post("https://reqres.in/api/pizza?api_key=reqres-free-v1",newOrder).then((res)=>{
+           
+            addOrder(res.data);
             history.push("/success");
         }).catch((err)=> console.error("Sipariş hatası:",err))
      }

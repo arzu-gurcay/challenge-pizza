@@ -6,16 +6,22 @@ import Pizza from "./components/Pizza"
 import Success from './components/Success'
 
 function App() {
+  const [orders,setOrders]=useState([]);
+
+  const addOrder=(newOrder)=>{
+    setOrders((prevOrders)=>[...prevOrders,newOrder]);
+  }
   
 return (
-    
+ 
       <Switch>
-        <Route exact path="/" component={Home}/> 
-        <Route path="/pizza" component={Pizza}/>
-        <Route path="/success" component={Success} />
+        <Route exact path="/" > <Home /></Route> 
+        <Route path="/pizza" > <Pizza addOrder={addOrder}/></Route> 
+        <Route path="/success" > <Success order={orders[orders.length-1]}/></Route> 
       </Switch>
+      
     
   )
 }
 
-export default App
+export default App;
