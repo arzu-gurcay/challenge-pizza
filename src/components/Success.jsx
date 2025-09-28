@@ -3,7 +3,7 @@ function Success({order}){
 
     return(
     <div className="success-container">
-        <img src="/images/iteration-1-images/logo.svg" alt="logo" className="logo"/>
+        <img src="/images/iteration-1-images/logo.svg" alt="logo" className="logox"/>
         <h2 className="sub">lezzetin yolda</h2>
         <h1 className="title">SİPARİŞ ALINDI</h1>
         <hr/>
@@ -30,11 +30,11 @@ function Success({order}){
   <div className="price-box">
     <div className="price-box-title">Sipariş Toplamı</div>
     <div className="row">
-      <span className="label">Seçimler:</span>
+      <span className="label">Seçimler</span>
       <span className="value">{Number(order.extrasPrice).toFixed(2)}₺</span>
     </div>
     <div className="row">
-      <span className="label">Toplam:</span>
+      <span className="label">Toplam</span>
       <span className="value">{Number(order.totalPrice).toFixed(2)}₺</span>
     </div>
   </div>

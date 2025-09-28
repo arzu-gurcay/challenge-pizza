@@ -1,6 +1,7 @@
 import axios, { formToJSON } from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import {FaTwitter} from "react-icons/fa";
 
 
 function Pizza({addOrder}){
@@ -67,13 +68,17 @@ const handleChange =(e)=>{
     return (
         <div className="pizza-page">
             <header className="header">
-            <img src="/images/iteration-1-images/logo.svg" className="logo" alt="logo"/>
-            <nav className="navbar">
-                <a href="/">Anasayfa-</a>
-                <a href="/pizza">Sipariş Oluştur</a>
-            </nav>
+            <img src="/images/iteration-1-images/logo.svg" className="logos" alt="logo"/>
+            
             </header>
-            <main className="main">
+            
+                <div className="arkaplan">
+                    
+                <nav className="navbar">
+                <a href="/">Anasayfa  -</a>
+                <a href="/">Seçenekler  -</a>
+                <span className="star">Sipariş Oluştur</span>
+            </nav>
                 <h2 className="title">Position Absolute Acı Pizza</h2>
                 <div className="price-rating">
                 <p className="price">{basePrice}₺</p>
@@ -83,18 +88,23 @@ const handleChange =(e)=>{
                     </div>
                     </div>
                 <p className="desc">Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates,peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak,düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. Küçük bir pizzaya bazen pizzetta denir.</p>
+               
+               </div>
+               <main className="main">
                <form onSubmit={handleSubmit}>
                 <div className="form-row">
                 <div className="form-group boyut-group">
                  <h3>Boyut Seç <span className="star">*</span></h3>
-                <label><input type="radio" name="boyut" value="Küçük" onChange={handleChange} data-cy="radio-size-küçük"/>Küçük</label>
-                <label><input type="radio" name="boyut" value="Orta" onChange={handleChange} data-cy="radio-size-orta"/>Orta</label>
-                <label><input type="radio" name="boyut" value="Büyük" onChange={handleChange} data-cy="radio-size-büyük"/>Büyük</label>
+                 <div className="boyut-options">
+                <label><input type="radio" name="boyut" value="S" onChange={handleChange} data-cy="radio-size-küçük"/><span>S</span></label>
+                <label><input type="radio" name="boyut" value="M" onChange={handleChange} data-cy="radio-size-orta"/><span>M</span></label>
+                <label><input type="radio" name="boyut" value="L" onChange={handleChange} data-cy="radio-size-büyük"/><span>L</span></label>
+                </div>
                 </div>
                 <div className="form-group">
                 <h3>Hamur Seç <span className="star">*</span></h3>
                 <select name="hamur" value={formData.hamur} onChange={handleChange} data-cy="select-hamur">
-                    <option value="">Hamur Kalınlığı</option>
+                    <option value="">- Hamur Kalınlığı Seç -</option>
                     <option value="ince">İnce</option>
                     <option value="normal">Normal</option>
                     <option value="kalın">Kalın</option>
@@ -106,8 +116,10 @@ const handleChange =(e)=>{
                     <p className="info">En fazla 10 malzeme seçebilirsiniz. 5₺</p>
                     <div className="checkbox-group">
                     {ekMalzemeler.map((malzeme)=>(
-                        <label key={malzeme}>
-                            <input type="checkbox" value={malzeme} checked={formData.malzemeler.includes(malzeme)} onChange={handleCheckbox} data-cy={`checkbox-${malzeme}`}/>{malzeme}
+                        <label key={malzeme} className="malzeme-item"> 
+                            <input type="checkbox" value={malzeme} checked={formData.malzemeler.includes(malzeme)} onChange={handleCheckbox} data-cy={`checkbox-${malzeme}`}/>
+                            
+                            {malzeme}
                         </label>
                     ))}
                     </div>
@@ -143,7 +155,56 @@ const handleChange =(e)=>{
                     </div>
                      </div>
                 </form>
-            </main>
+                 </main>
+                <footer className="foot">
+                    <div className="foot-container">
+        <div className="foot-left">
+           <img src="/images/iteration-2-images/footer/logo-footer.svg" alt="logo" className="logo"/>
+          <div className="foot-item">
+      <img src="/images/iteration-2-images/footer/icons/icon-1.png" alt="Adres" />
+      <span>341 Londonderry Road, İstanbul Türkiye</span>
+    </div>
+
+    <div className="foot-item">
+      <img src="/images/iteration-2-images/footer/icons/icon-2.png" alt="Mail" />
+      <span>aciktim@teknolojikyemekler.com</span>
+    </div>
+
+    <div className="foot-item">
+      <img src="/images/iteration-2-images/footer/icons/icon-3.png" alt="Telefon" />
+      <span>+90 216 123 45 67</span>
+    </div>
+  </div>
+        <div className="foot-menu">
+          <h4>Hot Menu</h4>
+          <ul>
+            <li>Terminal Pizza</li>
+            <li>5 Kişilik Hackathon Pizza</li>
+            <li>useEffect Tavuklu Burger</li>
+            <li>Beyaz Console Frosty</li>
+            <li>Testler Geçti Mutlu Burger</li>
+            <li>Position Absolute Acı Burger</li>
+          </ul>
+        </div>
+        <div className="foot-instagram">
+          <h4>Instagram</h4>
+          <div className="instagram-grid">
+            <img src="/images/iteration-2-images/footer/insta/li-0.png" alt="" />
+            <img src="/images/iteration-2-images/footer/insta/li-1.png" alt="" />
+            <img src="/images/iteration-2-images/footer/insta/li-2.png" alt="" />
+            <img src="/images/iteration-2-images/footer/insta/li-3.png" alt="" />
+            <img src="/images/iteration-2-images/footer/insta/li-4.png" alt="" />
+            <img src="/images/iteration-2-images/footer/insta/li-5.png" alt="" />
+          </div>
+        </div>
+        </div>
+        <hr class="foot-sep" />
+        <div className="foot-bottom">
+          <h2>© 2023 Teknolojik Yemekler</h2>
+          <FaTwitter className="twitter-icon" />
+        </div>
+      </footer>
+           
         </div>
 
     )
