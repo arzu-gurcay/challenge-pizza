@@ -211,7 +211,7 @@ margin-top: 0.5rem;
   padding:32px clamp(16px,3vw,28px) 48px; border-top:1px solid rgba(255,255,255,.06);
   display:grid; grid-template-columns:2fr 1fr 1fr; gap:26px; max-width: 1200px; margin: 0 auto; width: 100%;
 }
-.footer .logo{width:160px; margin-bottom:12px ; }
+.footer .homes-logo{width:100px; margin-bottom:12px ; margin-left: 160px; }
 .footer-item{display:flex; align-items:flex-start; gap:10px; margin:10px 0; color:#d7d7d9 ; margin-left: 150px ; font-weight: lighter;}
 .footer-item img{width:18px; opacity:.85}
 .footer-menu h4,.footer-insta h4{margin:0 0 10px}
@@ -256,26 +256,6 @@ margin-top: 0.5rem;
 }
 
 
-/* ---------- Responsive ---------- */
-@media (max-width:1024px){
-  .categories{grid-template-columns:repeat(4,1fr)}
-  .campaigns{grid-template-columns:1fr}
-  .menu-items{grid-template-columns:repeat(3,1fr)}
-}
-@media (max-width:768px){
-  .home-header{padding:36px 16px 120px}
-  .home-header h2{font-size:2.1rem}
-  .categories{grid-template-columns:repeat(3,1fr)}
-  .menu-items{grid-template-columns:repeat(2,1fr)}
-  .footer{grid-template-columns:1fr}
-}
-@media (max-width:480px){
-  .home-header h2{font-size:1.7rem}
-  .categories{grid-template-columns:repeat(2,1fr)}
-  .menu-items{grid-template-columns:1fr}
-}
-
-
 .pizza-page {
   font-family: "Roboto Condensed", sans-serif;
   color: #292929;
@@ -305,10 +285,11 @@ margin-top: 0.5rem;
   .arkaplan > * {
     margin-top: 0;
   }
-.logos {
+.logos{
   height:50px;
   display: block;
   margin: 0 auto;
+
 }
 
 .navbar{
@@ -714,7 +695,7 @@ display: block;
   max-width:420px;
 }
 
-.logo{ height:48px; margin-bottom:14px; margin-right: 280px; }
+.logo{ height:46px; margin-bottom:14px; margin-right: 280px; }
 
 .foot-item{
   display:flex; align-items:center; gap:10px;

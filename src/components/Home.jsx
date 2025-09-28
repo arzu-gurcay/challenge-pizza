@@ -94,7 +94,7 @@ function Home(){
       </section>
       <footer className="footer">
         <div className="footer-left">
-           <img src="/images/iteration-2-images/footer/logo-footer.svg" alt="logo" className="logo"/>
+           <img src="/images/iteration-2-images/footer/logo-footer.svg" alt="logo" className="homes-logo"/>
           <div className="footer-item">
       <img src="/images/iteration-2-images/footer/icons/icon-1.png" alt="Adres" />
       <span>341 Londonderry Road, İstanbul Türkiye</span>
